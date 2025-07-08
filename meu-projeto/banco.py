@@ -13,11 +13,10 @@ CREATE TABLE IF NOT EXISTS usuarios (
 conexao.commit()
 
 
-def salvar_usuario(usuario):
-        cursor.execute("insert into usuarios(nome, idade) values (?, ?)", (usuario.nome, usuario.idade)) 
+def salvar_usuarios(nome, idade):
+        cursor.execute("INSERT INTO usuarios (nome, idade) values (?, ?)", (nome, idade)) 
         conexao.commit()
 
 def lista_usuarios():
         cursor.execute("select * from usuarios")
-        retu
-conexao.close()
+        return cursor.fetchall()
